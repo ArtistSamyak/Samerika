@@ -1,9 +1,14 @@
 
 const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-const today = new Date();
+let today = new Date();
+const todayDay = today.getDate();
+const todayMonth = today.getMonth();
+const todayYear = today.getFullYear();
+
+today = new Date(todayYear,todayMonth,todayDay);
 const meetup = new Date(2022, 09, 02);
 
-const diffDays = Math.round(((meetup - today) + oneDay) / oneDay);
+const diffDays = Math.round((meetup - today) / oneDay);
 const h2 = document.querySelector("h2")
 
 if (diffDays > 1) {
